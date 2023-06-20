@@ -1,0 +1,26 @@
+-- create a table
+CREATE TABLE students (
+ id INTEGER ,
+ name varchar,
+ dept varchar
+ );
+insert into students values(1,'lalitha','cs');
+insert into students values(2,'madhu','cs');
+insert into students values(3,'padma','cs');
+insert into students values(4,'priya','cs');
+insert into students(id,name,dept) 
+values(5,'ram','it'),(6,'ravi','mech'),(7,'abi','ece'),(8,'arun','eee'),(9,'anu','cce'),(10,'pavi','cse');
+select * from students;
+alter table students add column grade varchar(10);
+update students set grade ='A' where dept='cs';
+select * from students;
+delete from students where id=9;
+select * from students where id between 1 and 7;
+select * from students;
+alter table students add column age INTEGER;
+update students set age =20;
+select * from students;
+select * from students order by name;
+select count(dept) as total from students where dept='cs';
+select count(name) as total from students where name;
+select * from students order by name desc;
