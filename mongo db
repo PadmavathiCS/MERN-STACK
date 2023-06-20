@@ -124,7 +124,7 @@ db.rent.insert({name:"swift",model:"dts",count:1,mileage:15,transmission:"automa
     '0': ObjectId("64917b686833885c11b5dbe0")
   }
 }
-db.rent.insert({name:"poche",model:911,count:2,mileage:18,transmission:"manual",rent:4000,fuel:"diesel",image:"https://ghjm.com"})
+db.rent.insert({name:"porche",model:911,count:2,mileage:18,transmission:"manual",rent:4000,fuel:"diesel",image:"https://ghjm.com"})
 {
   acknowledged: true,
   insertedIds: {
