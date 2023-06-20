@@ -1,0 +1,435 @@
+use testdb
+switched to db testdb
+show dbs
+admin   40.00 KiB
+config  92.00 KiB
+local   40.00 KiB
+db.testcollection.insert({id:1,name:"raja"})
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64916d386833885c11b5dbdb")
+  }
+}
+db.testcollection.find()
+{
+  _id: ObjectId("64916d386833885c11b5dbdb"),
+  id: 1,
+  name: 'raja'
+}
+db.testcollection.insert({id:2,name:"ram",age=20})
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.testcollection.insert({id:2,name:"ram",age:20})
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64916e2c6833885c11b5dbdc")
+  }
+}
+db.testcollection.find()
+{
+  _id: ObjectId("64916d386833885c11b5dbdb"),
+  id: 1,
+  name: 'raja'
+}
+{
+  _id: ObjectId("64916e2c6833885c11b5dbdc"),
+  id: 2,
+  name: 'ram',
+  age: 20
+}
+db.testcollection.insertMany({ids,name:"ram",age:20})
+ReferenceError: ids is not defined
+db.testcollection.insertMany([{id:3,name:"ram",age:20},{id:4,name:madhu},{name:lalli}])
+ReferenceError: madhu is not defined
+db.testcollection.insertMany([{id:3,name:"ram",age:20},{id:4,name:"madhu"},{name:"lalli"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("649170916833885c11b5dbdd"),
+    '1': ObjectId("649170916833885c11b5dbde"),
+    '2': ObjectId("649170916833885c11b5dbdf")
+  }
+}
+db
+testdb
+db.testcollection.find({"name":"madhu"})
+{
+  _id: ObjectId("649170916833885c11b5dbde"),
+  id: 4,
+  name: 'madhu'
+}
+db.testcollection.update({name:"lalli"},{$set:{age:10}})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.testcollection.find({"name":"lalli"})
+{
+  _id: ObjectId("649170916833885c11b5dbdf"),
+  name: 'lalli',
+  age: 10
+}
+db.testcollection.update({name:"madhu"},{$set:{age:18}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.testcollection.find({"name":"madhu"})
+{
+  _id: ObjectId("649170916833885c11b5dbde"),
+  id: 4,
+  name: 'madhu',
+  age: 18
+}
+db.testcollection.update({name:"madhu"},{$set:{age:19}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.testcollection.find({"name":"madhu"})
+{
+  _id: ObjectId("649170916833885c11b5dbde"),
+  id: 4,
+  name: 'madhu',
+  age: 19
+}
+testdb
+
+use vehicle
+switched to db vehicle
+db.rentcollection.insertMany([{name:"swift",model:"dts",count:1,mileage:15,transmission:"automatic",rent:1300,fuel;"petrol",image_url:"http://acdskh.com"}])
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+[db.rentcollection.insertMany([{name:"swift",model:"dts",count:1,mileage:15,transmission:"automatic",rent:1300,fuel:"petrol",image_url:"http://acdskh.com"}])
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+[db.rent.insert([{name:"swift",model:"dts",count:1,mileage:15,transmission:"automatic",rent:1300,fuel:"petrol",image_url:"http://acdskh.com"}])
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+[db.rent.insert({name:"swift",model:"dts",count:1,mileage:15,transmission:"automatic",rent:1300,fuel:"petrol",image:"https://acdskh.com"})
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.rent.insert({name:"swift",model:"dts",count:1,mileage:15,transmission:"automatic",rent:1300,fuel:"petrol",image:"https://acdskh.com"})
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64917b686833885c11b5dbe0")
+  }
+}
+db.rent.insert({name:"poche",model:911,count:2,mileage:18,transmission:"manual",rent:4000,fuel:"diesel",image:"https://ghjm.com"})
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64917bdd6833885c11b5dbe1")
+  }
+}
+db.rent.insert({name:"benz",model:"GLE",count:10,mileage:20,transmission:"electric",rent:8000,fuel:"diesel",image:"https://ewwy.com"})
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64917c556833885c11b5dbe2")
+  }
+}
+db.rent.insert({name:"audi",model:"Q3",count:6,mileage:30,transmission:"automatic",rent:3600,fuel:"petrol",image:"https://auigo.com"})
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64917ca66833885c11b5dbe3")
+  }
+}
+db.rent.insert({name:"mustang",model:"Shelby",count:2,mileage:12,transmission:"manual",rent:6000,fuel:"petrol",image:"https://jhcgd.com"})
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64917db06833885c11b5dbe4")
+  }
+}
+db.rent.deleteOne({'name':'poche'})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.rent.insert({name:"ferrari",model:"Roma",count:2,mileage:12,transmission:"manual",rent:6000,fuel:"petrol",image:"https://jhcgd.com"})
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64917ed66833885c11b5dbe5")
+  }
+}
+db.rent.insert({name:"datsun",model:"redigo",count:5,mileage:67,transmission:"manual",rent:6000,fuel:"petrol",image:"https://jhgfdkd.com"})
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64917f2f6833885c11b5dbe6")
+  }
+}
+db.rent.insert({name:"nissan",model:"skyline",count:5,mileage:67,transmission:"manual",rent:6000,fuel:"petrol",image:"https://jhgfdkd.com"})
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64917f506833885c11b5dbe7")
+  }
+}
+db.rent.find()
+{
+  _id: ObjectId("64917b686833885c11b5dbe0"),
+  name: 'swift',
+  model: 'dts',
+  count: 1,
+  mileage: 15,
+  transmission: 'automatic',
+  rent: 1300,
+  fuel: 'petrol',
+  image: 'https://acdskh.com'
+}
+{
+  _id: ObjectId("64917c556833885c11b5dbe2"),
+  name: 'benz',
+  model: 'GLE',
+  count: 10,
+  mileage: 20,
+  transmission: 'electric',
+  rent: 8000,
+  fuel: 'diesel',
+  image: 'https://ewwy.com'
+}
+{
+  _id: ObjectId("64917ca66833885c11b5dbe3"),
+  name: 'audi',
+  model: 'Q3',
+  count: 6,
+  mileage: 30,
+  transmission: 'automatic',
+  rent: 3600,
+  fuel: 'petrol',
+  image: 'https://auigo.com'
+}
+{
+  _id: ObjectId("64917db06833885c11b5dbe4"),
+  name: 'mustang',
+  model: 'Shelby',
+  count: 2,
+  mileage: 12,
+  transmission: 'manual',
+  rent: 6000,
+  fuel: 'petrol',
+  image: 'https://jhcgd.com'
+}
+{
+  _id: ObjectId("64917ed66833885c11b5dbe5"),
+  name: 'ferrari',
+  model: 'Roma',
+  count: 2,
+  mileage: 12,
+  transmission: 'manual',
+  rent: 6000,
+  fuel: 'petrol',
+  image: 'https://jhcgd.com'
+}
+{
+  _id: ObjectId("64917f2f6833885c11b5dbe6"),
+  name: 'datsun',
+  model: 'redigo',
+  count: 5,
+  mileage: 67,
+  transmission: 'manual',
+  rent: 6000,
+  fuel: 'petrol',
+  image: 'https://jhgfdkd.com'
+}
+{
+  _id: ObjectId("64917f506833885c11b5dbe7"),
+  name: 'nissan',
+  model: 'skyline',
+  count: 5,
+  mileage: 67,
+  transmission: 'manual',
+  rent: 6000,
+  fuel: 'petrol',
+  image: 'https://jhgfdkd.com'
+}
+db.rent.insert({name:"hyundai",model:76,count:5,mileage:67,transmission:"manual",rent:3000,fuel:"petrol",image:"https://jhgfdkd.com"})
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64917fa66833885c11b5dbe8")
+  }
+}
+db.rent.insert({name:"honda",model:851,count:2,mileage:27,transmission:"manual",rent:3000,fuel:"petrol",image:"https://jhgfdkd.com"})
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("64917fc36833885c11b5dbe9")
+  }
+}
+db.rent.insert({name:"bmw",model:gtr,count:2,mileage:27,transmission:"manual",rent:3000,fuel:"petrol",image:"https://jhgfdkd.com"})
+ReferenceError: gtr is not defined
+db.rent.insert({name:"bmw",model:"gtr",count:2,mileage:27,transmission:"manual",rent:3000,fuel:"petrol",image:"https://jhgfdkd.com"})
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("649180116833885c11b5dbea")
+  }
+}
+db.rent.find()
+{
+  _id: ObjectId("64917b686833885c11b5dbe0"),
+  name: 'swift',
+  model: 'dts',
+  count: 1,
+  mileage: 15,
+  transmission: 'automatic',
+  rent: 1300,
+  fuel: 'petrol',
+  image: 'https://acdskh.com'
+}
+{
+  _id: ObjectId("64917c556833885c11b5dbe2"),
+  name: 'benz',
+  model: 'GLE',
+  count: 10,
+  mileage: 20,
+  transmission: 'electric',
+  rent: 8000,
+  fuel: 'diesel',
+  image: 'https://ewwy.com'
+}
+{
+  _id: ObjectId("64917ca66833885c11b5dbe3"),
+  name: 'audi',
+  model: 'Q3',
+  count: 6,
+  mileage: 30,
+  transmission: 'automatic',
+  rent: 3600,
+  fuel: 'petrol',
+  image: 'https://auigo.com'
+}
+{
+  _id: ObjectId("64917db06833885c11b5dbe4"),
+  name: 'mustang',
+  model: 'Shelby',
+  count: 2,
+  mileage: 12,
+  transmission: 'manual',
+  rent: 6000,
+  fuel: 'petrol',
+  image: 'https://jhcgd.com'
+}
+{
+  _id: ObjectId("64917ed66833885c11b5dbe5"),
+  name: 'ferrari',
+  model: 'Roma',
+  count: 2,
+  mileage: 12,
+  transmission: 'manual',
+  rent: 6000,
+  fuel: 'petrol',
+  image: 'https://jhcgd.com'
+}
+{
+  _id: ObjectId("64917f2f6833885c11b5dbe6"),
+  name: 'datsun',
+  model: 'redigo',
+  count: 5,
+  mileage: 67,
+  transmission: 'manual',
+  rent: 6000,
+  fuel: 'petrol',
+  image: 'https://jhgfdkd.com'
+}
+{
+  _id: ObjectId("64917f506833885c11b5dbe7"),
+  name: 'nissan',
+  model: 'skyline',
+  count: 5,
+  mileage: 67,
+  transmission: 'manual',
+  rent: 6000,
+  fuel: 'petrol',
+  image: 'https://jhgfdkd.com'
+}
+{
+  _id: ObjectId("64917fa66833885c11b5dbe8"),
+  name: 'hyundai',
+  model: 76,
+  count: 5,
+  mileage: 67,
+  transmission: 'manual',
+  rent: 3000,
+  fuel: 'petrol',
+  image: 'https://jhgfdkd.com'
+}
+{
+  _id: ObjectId("64917fc36833885c11b5dbe9"),
+  name: 'honda',
+  model: 851,
+  count: 2,
+  mileage: 27,
+  transmission: 'manual',
+  rent: 3000,
+  fuel: 'petrol',
+  image: 'https://jhgfdkd.com'
+}
+{
+  _id: ObjectId("649180116833885c11b5dbea"),
+  name: 'bmw',
+  model: 'gtr',
+  count: 2,
+  mileage: 27,
+  transmission: 'manual',
+  rent: 3000,
+  fuel: 'petrol',
+  image: 'https://jhgfdkd.com'
+}
+db.rent.update({name:"honda"},{$set:{count:5}})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.rent.find({'name':'honda'})
+{
+  _id: ObjectId("64917fc36833885c11b5dbe9"),
+  name: 'honda',
+  model: 851,
+  count: 5,
+  mileage: 27,
+  transmission: 'manual',
+  rent: 3000,
+  fuel: 'petrol',
+  image: 'https://jhgfdkd.com'
+}
+{
+  _id: ObjectId("6491d0d9c649bf89c1c8fadd"),
+  name: 'honda',
+  model: 851,
+  count: 2,
+  mileage: 27,
+  transmission: 'manual',
+  rent: 3000,
+  fuel: 'petrol',
+  image: 'https://jhgfdkd.com'
+}
+db.rent.delete({name:"bmw"})
+TypeError: db.rent.delete is not a function
+db.rent.drop({name:"bmw"})
+true
+db.rent.find()
+db.rent.find({'name':'honda'})
+vehicle
+Selection deleted
+
+
+
