@@ -1,0 +1,215 @@
+/*let a="sece"-"sece";
+console.log(a);
+let c="1"*0;
+console.log(c);
+let num1=10;
+let num2=20;
+console.log(`addition of two number
+     ${num1} and ${num2} is 
+        ${num1+num2}`);
+//let xtr;
+console.log(xtr);
+console.log(sece);
+let sece ='college';
+const user =Object.freeze( {
+    name :'abc',
+    age:20,
+    college:'sece',
+    mail:'abc@gmail.com'
+});
+console.log(user);
+user.ph=6457844;
+console.log(user);
+user.name='def';
+console.log(user)
+delete user.mail
+console.log(user)
+console.log(Object.keys(user))
+console.log(Object.values(user)
+
+ 
+
+//**
+const details ={
+    address:{
+        street:'second street',
+        city:'coimbatore'
+    }
+}
+
+console.log(details?.address?.ciy)
+(function sum(num1,num2){
+    if(typeof num1 !== 'number' || typeof num2 !== 'number')
+    return 'Invalid';
+    console.log(num1+num2);
+}) (12,8);//iife*/
+//console.log(sum('acf',40))
+//const sum1=(a,b) => a+b;
+//console.log(sum1(3,4));
+/*const sum=(num1,num2) => num1+num2;
+const sub=(num1,num2) => num1-num2;
+const multiply=(num1,num2) => num1*num2;
+const divide=(num1,num2) => num1/num2;
+
+const  calculator =(num1,num2,operation) =>{
+    console.log(operation(num1,num2));
+}
+calculator(10,20,multiply)
+(function sum(num1,num2){
+        if(typeof num1 !== 'number' || typeof num2 !== 'number')
+    return 'Invalid';
+    console.log(num1+num2);
+}) (12,8);   
+//let text = "       Hello World!        ";
+//let result = text.trim();
+//console.log(result)
+let arr=[1,2,3,4,5];
+arr.push(6);
+console.log(arr);*/
+// day-2
+/*let str="sece";
+let s=str.split("");
+console.log(s);
+s.reverse();
+console.log(s);
+let a=s.join('');
+if(str==a){
+    console.log(true);
+}
+else{
+    console.log(false);
+}
+let names_obj=[
+    {
+    name:"mahesh",
+    dob:2002
+    },
+    {
+        name:'ajay',
+        dob:2003
+    },
+    {
+        name:'bala',
+        dob:2004
+
+    },
+    {
+        name:'surya',
+        dob:2006
+    }
+];
+//let ans=names_obj.map((ele)=>{
+    //if(ele.dob>=2003)
+    //return ele.name;
+//});
+//console.log(ans);
+let ans=names_obj.filter((ele)=>{
+    if(ele.dob>=2003)
+    return ele.name;
+});
+console.log(ans);
+let ans_name=names_obj.filter(ele => ele.dob>=2003).map(ele =>ele.name);
+console.log(ans_name);*/
+// let emp=[{
+//     name:'arun',
+//     age:40,
+//     salary:50000,
+//     phone:32686353560
+// },
+// {
+//     name:'ram',
+//     age:25,
+//     salary:45000,
+//     phone:47545353560
+// },
+// {
+//     name:'krishna',
+//     age:29,
+//     salary:55000,
+//     phone:32686353560
+// },
+// {
+//     name:'kavin',
+//     age:30,
+//     salary:20000,
+//     phone:32686353560
+// },
+// {
+//     name:'guna',
+//     age:35,
+//     salary:25000,
+//     phone:32686353560
+// },
+// ];
+// let a=emp.filter((ele) =>  ele.salary>=25000).map((ele)=> {
+//     return{name:ele.name,age:ele.age};
+// });
+// console.log(a);
+//   DE-STRUCTURING
+// let a=[1,2,3,4,5,6];
+// let [b, c,d,e]=a;
+// console.log(b,c,d,e)
+
+// let a1=[1,2,3,4,5,6];
+// let [b1, c1,,d1,e1,]=a;
+// console.log(b1,c1,d1,e1)
+
+// let a=[10,20,30,40,50,60,70,80,90,100];
+// let [b, c,,d,e,...f]=a;
+// console.log(b,c,d,e,f)
+
+// OBJECT DE-STUCTURING
+// let o={
+//     name:"sece",
+//     year:2024,
+//     city:"cbe",
+//     dept:"cs",
+//     salary:'50lpa'
+// };
+// let {name:clg_name,year,city,...re}=o;//rename operator
+// console.log(clg_name,year,city,re);
+// rename= let(old_name : new_name)
+// setTimeout(()=> console.log('hello'),5000)
+// setInterval(()=> console.log('hello'),3000)
+// console.log('arun')
+// setTimeout(()=> console.log('grh'),0)
+// console.log('hello')
+
+
+//PROMISE =>STATES:PENDING,RESOLVE,REJECT
+
+// const promisex=new Promise((resolve,reject)=>{//api call illustration
+//     setTimeout(()=>{
+//         resolve('resolved')
+//     },4000)
+// })
+// promisex
+// .then((value)=>console.log(value))
+// .catch(()=> console.log('error'))
+ 
+// //api call
+// const abc=fetch('https://jsonplaceholder.typicode.com/todos/1');
+// abc
+// .then((response)=>response.json())
+// .then((data)=>console.log(data))
+// .catch((error)=>{console.log('error',error)});
+
+// promise using async nd await
+// const apiCall=async()=>{
+//     const promise_api=await fetch('https://jsonplaceholder.typicode.com/todos');
+//     const data=await promise_api.json();
+//     console.log(data);
+// }
+// apiCall();
+
+const apiCall=async()=>{
+    try{
+          const promise_api=await fetch('https://jsonplaceholder.typicode.com/todos');
+          const data=await promise_api.json();
+          console.log(data);
+    } catch(error){
+        console.log(error);
+    }
+}
+apiCall();
+window.alert("hello world!");
